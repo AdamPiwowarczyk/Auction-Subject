@@ -2,23 +2,16 @@ package com.auction.product.service;
 
 import com.auction.product.exception.CategoryError;
 import com.auction.product.exception.CategoryException;
-import com.auction.product.exception.SubjectError;
-import com.auction.product.exception.SubjectException;
 import com.auction.product.model.Category;
-import com.auction.product.model.CategoryDto;
-import com.auction.product.model.Subject;
 import com.auction.product.repository.CategoryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
 public class CategoryServiceImpl implements CategoryService {
-
     private final CategoryRepository categoryRepository;
 
     @Override

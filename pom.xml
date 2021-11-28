@@ -6,7 +6,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.3.11.RELEASE</version>
-		<relativePath/> <!-- lookup parent from com.auction.history.repository -->
+		<relativePath/> <!-- lookup parent from com.auction.purchase.repository -->
 	</parent>
 	<groupId>com.auction</groupId>
 	<artifactId>subject</artifactId>

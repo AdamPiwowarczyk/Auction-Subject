@@ -14,15 +14,17 @@ public class SubjectExceptionHandler {
 
         if (SubjectError.SUBJECT_NOT_FOUND.equals(e.getSubjectError())) {
             httpStatus = HttpStatus.NOT_FOUND;
+        } else if (SubjectError.SUBJECT_NOT_AVAILABLE.equals(e.getSubjectError())) {
+            httpStatus = HttpStatus.BAD_REQUEST;
         } else if (SubjectError.SUBJECT_ALREADY_EXISTS.equals(e.getSubjectError())) {
             httpStatus = HttpStatus.BAD_REQUEST;
         } else if (SubjectError.PRICE_TOO_LOW.equals(e.getSubjectError())) {
             httpStatus = HttpStatus.BAD_REQUEST;
         } else if (SubjectError.BIDDING_TIME_HAS_EXPIRED.equals(e.getSubjectError())) {
             httpStatus = HttpStatus.BAD_REQUEST;
-        } else if (SubjectError.PRICE_TOO_LOW.equals(e.getSubjectError())) {
-            httpStatus = HttpStatus.BAD_REQUEST;
         } else if (SubjectError.MAX_SIZE_OF_FILE_EXCEEDED.equals(e.getSubjectError())) {
+            httpStatus = HttpStatus.BAD_REQUEST;
+        } else if (SubjectError.DESCRIPTION_TOO_LONG.equals(e.getSubjectError())) {
             httpStatus = HttpStatus.BAD_REQUEST;
         }
 
@@ -42,14 +44,5 @@ public class SubjectExceptionHandler {
 
         return ResponseEntity.status(httpStatus)
                 .body(new ErrorInfo(e.getCategoryError().getMessage()));
-    }
-
-    @ExceptionHandler(value = TransactionSystemException.class)
-    public ResponseEntity<ErrorInfo> handleTransactionException(TransactionSystemException e) {
-        HttpStatus httpStatus = HttpStatus.BAD_REQUEST;
-        String message = e.getOriginalException().getCause().getMessage();
-
-        return ResponseEntity.status(httpStatus)
-                .body(new ErrorInfo(message));
     }
 }

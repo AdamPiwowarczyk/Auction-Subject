@@ -1,7 +1,7 @@
 package com.auction.product.exception;
 
 public class CategoryException extends RuntimeException {
-    private CategoryError categoryError;
+    private final CategoryError categoryError;
 
     public CategoryException(CategoryError categoryError) {
         this.categoryError = categoryError;

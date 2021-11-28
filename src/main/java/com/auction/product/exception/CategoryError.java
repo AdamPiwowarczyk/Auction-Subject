@@ -1,8 +1,8 @@
 package com.auction.product.exception;
 
 public enum CategoryError {
-    CATEGORY_NOT_FOUND("Category not found"),
-    CATEGORY_ALREADY_EXISTS("Category already exists");
+    CATEGORY_NOT_FOUND("Nie znaleziono kategorii"),
+    CATEGORY_ALREADY_EXISTS("Kategoria już istnieje");
 
     private String message;
 

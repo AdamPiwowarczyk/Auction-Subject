@@ -7,12 +7,10 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
-public class CategoryDto {
-    String name;
-
-    public CategoryDto(Category category) {
-        this.name = category.getName();
-    }
+@NoArgsConstructor
+public class StackDto {
+    private Double minPrice;
+    private Double currentPrice;
+    private String username;
 }

@@ -1,7 +1,6 @@
 package com.auction.product.service;
 
 import com.auction.product.model.Category;
-import com.auction.product.model.CategoryDto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -11,11 +11,6 @@ import java.util.List;
 
 @Repository
 public interface SubjectRepository extends JpaRepository<Subject, String> {
-//    List<Subject> findAllByEndDateIsNotNull();
-
-//    List<Subject> findAllByEndDateIsNull();
-//    List<Subject> findAllByArchive(boolean archive);
-
     List<Subject> findAllByCategories(Category category);
 
     List<Subject> findAllByCodeIn(List<String> codes);
@@ -25,20 +20,18 @@ public interface SubjectRepository extends JpaRepository<Subject, String> {
     @Query("select s from Subject s where s.endDate < current_time() and s.archive = false")
     List<Subject> findAllWithEndDateExceeded();
 
-    //--------------------------nowe---------------------------------
-
-    @Query("select s from Subject s where s.endDate is not null and s.archive = false")//aktywne
+    @Query("select s from Subject s where s.endDate is not null and s.archive = false")
     List<Subject> findNotArchiveWithEndDate();
 
-    @Query("select s from Subject s where s.soldPrice > s.basicPrice and s.archive = false")//licytowane
+    @Query("select s from Subject s where s.soldPrice > s.basicPrice and s.archive = false")
     List<Subject> findNotArchiveWithSoldPriceBiggerThanBasicPrice();
 
-    @Query("select s from Subject s where s.endDate is null")//nowe
+    @Query("select s from Subject s where s.endDate is null")
     List<Subject> findWhereEndDateIsNull();
 
-    @Query("select s from Subject s where s.soldPrice > s.basicPrice and s.archive = true")//kupione
+    @Query("select s from Subject s where s.soldPrice > s.basicPrice and s.archive = true")
     List<Subject> findArchiveWithSoldPriceBiggerThanBasicPrice();
 
-    @Query("select s from Subject s where s.archive = true")//archiwalne
+    @Query("select s from Subject s where s.archive = true")
     List<Subject> findArchive();
 }
